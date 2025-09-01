@@ -1,0 +1,1 @@
+pwned_url = "https://api.pwnedpasswords.com/range/"
