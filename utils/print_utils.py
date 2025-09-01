@@ -1,6 +1,6 @@
 import time
 from colorama import Fore
-from utils.passwd_analyzer import PasswordAnalyzer
+from utils.password_analyzer import PasswordAnalyzer
 
 def print_dynamic_criteria(criteria: dict):
     """

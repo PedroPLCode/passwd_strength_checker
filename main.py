@@ -1,7 +1,7 @@
 import time
 import getpass
 from colorama import Fore
-from utils.passwd_analyzer import PasswordAnalyzer
+from utils.password_analyzer import PasswordAnalyzer
 from utils.print_utils import print_dynamic_criteria, print_dynamic_strength_bar
 
 def main():
@@ -13,11 +13,11 @@ def main():
     - Checks if the password has been leaked using HaveIBeenPwned API.
     """
     try:
-        pwd = getpass.getpass(Fore.CYAN + "\nEnter a password to check: ").strip()
-        if not pwd:
+        password = getpass.getpass(Fore.CYAN + "\nEnter a password to check: ").strip()
+        if not password:
             raise ValueError("Password cannot be empty.")
 
-        analyzer = PasswordAnalyzer(pwd)
+        analyzer = PasswordAnalyzer(password)
         print(Fore.CYAN + "\nAnalyzing password criteria...\n")
         criteria = analyzer.evaluate_criteria()
         print_dynamic_criteria(criteria)
@@ -26,7 +26,7 @@ def main():
         print_dynamic_strength_bar(analyzer.score)
 
         print(Fore.CYAN + "\nChecking password against HaveIBeenPwned database...")
-        leaks = analyzer.check_pwned(pwd)
+        leaks = analyzer.check_pwned(password)
         time.sleep(0.5)
         if leaks == -1:
             print(Fore.YELLOW + "[?] Could not check password against HaveIBeenPwned API.\n")
