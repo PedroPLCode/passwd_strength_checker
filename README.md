@@ -1,4 +1,4 @@
-# Password Strength Checker 🔐
+# Password Strength Checker
 A terminal-based Python tool to **analyze password strength** and **check for known data breaches** using the [HaveIBeenPwned API](https://haveibeenpwned.com/Passwords).  
 This project provides a **cybersecurity-inspired terminal interface** with colored outputs and dynamic animations.
 
