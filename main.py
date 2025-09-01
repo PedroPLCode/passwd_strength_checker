@@ -4,6 +4,7 @@ from colorama import Fore
 from utils.password_analyzer import PasswordAnalyzer
 from utils.print_utils import print_dynamic_criteria, print_dynamic_strength_bar
 
+
 def main():
     """
     Main function for the password strength checker CLI tool.
@@ -29,16 +30,23 @@ def main():
         leaks = analyzer.check_pwned(password)
         time.sleep(0.5)
         if leaks == -1:
-            print(Fore.YELLOW + "[?] Could not check password against HaveIBeenPwned API.\n")
+            print(
+                Fore.YELLOW
+                + "[?] Could not check password against HaveIBeenPwned API.\n"
+            )
         elif leaks == 0:
             print(Fore.GREEN + "[v] Password not found in known breaches.\n")
         else:
-            print(Fore.RED + f"[x] Password found {leaks} times in breaches! Change it immediately!\n")
+            print(
+                Fore.RED
+                + f"[x] Password found {leaks} times in breaches! Change it immediately!\n"
+            )
 
     except ValueError as ve:
         print(Fore.RED + f"Input error: {ve}\n")
     except KeyboardInterrupt:
         print(Fore.MAGENTA + "\nProcess interrupted by user.\n")
+
 
 if __name__ == "__main__":
     main()

@@ -7,5 +7,5 @@ strength_levels = {
     3: "Strong",
     4: "Strong",
     5: "Very Strong",
-    6: "Very Strong"
+    6: "Very Strong",
 }

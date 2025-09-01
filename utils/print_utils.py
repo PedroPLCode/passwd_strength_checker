@@ -2,12 +2,13 @@ import time
 from colorama import Fore
 from utils.password_analyzer import PasswordAnalyzer
 
+
 def print_dynamic_criteria(criteria: dict):
     """
     Print each password criterion dynamically with colors.
     - Green [v] for met criteria.
     - Red [x] for unmet criteria.
-    
+
     Args:
         criteria (dict): Dictionary of password criteria and their boolean status.
     """
@@ -18,10 +19,11 @@ def print_dynamic_criteria(criteria: dict):
             print(Fore.RED + f"[x] {key}")
         time.sleep(0.2)
 
+
 def print_dynamic_strength_bar(score: int):
     """
     Print a colored password strength bar based on numeric score.
-    
+
     Args:
         score (int): Password strength score (0-6).
     """
