@@ -76,7 +76,9 @@ def test_check_pwned_password_found(monkeypatch):
     mock_response.text = f"{suffix}:12345\n"
     mock_response.raise_for_status = lambda: None
 
-    with patch("utils.password_analyzer.requests.get", return_value=mock_response) as mock_get:
+    with patch(
+        "utils.password_analyzer.requests.get", return_value=mock_response
+    ) as mock_get:
         count = PasswordAnalyzer.check_pwned("password")
         assert count == 12345
         mock_get.assert_called_once()
@@ -102,6 +104,8 @@ def test_check_pwned_request_error(monkeypatch):
     Test handling of a network/API error when checking the password.
     The function should return -1 on exception.
     """
-    with patch("utils.password_analyzer.requests.get", side_effect=Exception("Network error")):
+    with patch(
+        "utils.password_analyzer.requests.get", side_effect=Exception("Network error")
+    ):
         count = PasswordAnalyzer.check_pwned("whatever")
         assert count == -1

@@ -38,8 +38,9 @@ def test_check_pwned_uses_correct_url():
     fake_sha1 = "DUMMYSHA1"
     prefix, suffix = fake_sha1[:5], fake_sha1[5:]
 
-    with patch("hashlib.sha1") as mock_sha1, \
-         patch("utils.password_analyzer.requests.get") as mock_get:
+    with patch("hashlib.sha1") as mock_sha1, patch(
+        "utils.password_analyzer.requests.get"
+    ) as mock_get:
 
         mock_sha1.return_value.hexdigest.return_value = fake_sha1
 

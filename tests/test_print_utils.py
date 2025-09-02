@@ -14,7 +14,9 @@ from main import print_dynamic_criteria, print_dynamic_strength_bar
         ({"Contains number": False}, "[x]", Fore.RED),
     ],
 )
-def test_print_dynamic_criteria(capsys, monkeypatch, criteria, expected_symbol, expected_color):
+def test_print_dynamic_criteria(
+    capsys, monkeypatch, criteria, expected_symbol, expected_color
+):
     """
     Test that `print_dynamic_criteria` prints the correct symbols and colors for each criterion.
 
