@@ -14,13 +14,15 @@ def main():
     - Checks if the password has been leaked using HaveIBeenPwned API.
     """
     try:
-        password = getpass.getpass(Fore.CYAN + "\nEnter a password to check: ").strip()
+        password = getpass.getpass(Fore.CYAN + "\nEnter a password to check: ")
+
         if not password:
             raise ValueError("Password cannot be empty.")
 
         if not isinstance(password, str):
             raise ValueError("Password must be string.")
 
+        password = password.strip()
         analyzer = PasswordAnalyzer(password)
         print(Fore.CYAN + "\nAnalyzing password criteria...\n")
         criteria = analyzer.evaluate_criteria()
@@ -46,9 +48,11 @@ def main():
             )
 
     except ValueError as ve:
-        print(Fore.RED + f"Input error: {ve}\n")
+        print(Fore.RED + f"ValueError: {ve}\n")
     except KeyboardInterrupt:
         print(Fore.MAGENTA + "\nProcess interrupted by user.\n")
+    except Exception as e:
+        print(Fore.RED + f"Exception: {e}\n")
 
 
 if __name__ == "__main__":

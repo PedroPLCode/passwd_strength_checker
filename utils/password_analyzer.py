@@ -1,6 +1,7 @@
 import re
 import hashlib
 import requests
+from colorama import Fore
 from settings import pwned_url, strength_levels
 
 
@@ -85,5 +86,7 @@ class PasswordAnalyzer:
                 if h == suffix:
                     return int(count)
             return 0
-        except requests.exceptions.RequestException:
+
+        except Exception as e:
+            print(Fore.RED + f"Exception: {e}\n")
             return -1

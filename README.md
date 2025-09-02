@@ -32,6 +32,10 @@ source venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
+4. Run all tests:
+```bash
+pytest
+```
 
 ## Usage
 Run the main script:
@@ -43,10 +47,8 @@ The tool will dynamically display which criteria the password meets.
 The strength bar will visualize the password's strength.
 The tool will check if the password has appeared in known breaches and display a warning if necessary.
 
-## Dependencies
-- Python 3.10+
-- colorama
-- requests
+## Tests
+This project uses [pytest](https://docs.pytest.org/) for testing and [pytest-cov](https://pytest-cov.readthedocs.io/) for code coverage reporting.
 
 ## Important!
 Familiarize yourself thoroughly with the source code. Understand its operation. Only then will you be able to customize and adjust scripts to your own needs, preferences, and requirements. Only then will you be able to use it correctly and avoid potential issues. Knowledge of the underlying code is essential for making informed decisions and ensuring the successful implementation of the app for your specific use case. Make sure to review all components and dependencies before running the scripts.
