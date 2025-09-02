@@ -28,6 +28,10 @@ cd passwd_strength_checker
 python3 -m venv venv
 source venv/bin/activate
 ```
+3. Install requirements:
+```bash
+pip install -r requirements.txt
+```
 
 ## Usage
 Run the main script:
