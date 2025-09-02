@@ -1,3 +1,8 @@
+"""
+pwned_url: API endpoint for the Have I Been Pwned password range check.
+strength_levels: Mapping of numeric password scores (0–6) to descriptive strength levels.
+"""
+
 pwned_url = "https://api.pwnedpasswords.com/range/"
 
 strength_levels = {
