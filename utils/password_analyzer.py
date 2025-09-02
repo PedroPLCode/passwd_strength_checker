@@ -21,9 +21,9 @@ class PasswordAnalyzer:
         Args:
             password (str): Password to be analyzed.
         """
-        self.password = password
-        self.criteria = self.evaluate_criteria()
-        self.score = self.calculate_score()
+        self.password = str(password)
+        self.criteria = dict(self.evaluate_criteria())
+        self.score = int(self.calculate_score())
 
     def evaluate_criteria(self) -> dict:
         """
@@ -33,8 +33,8 @@ class PasswordAnalyzer:
             dict: Dictionary of criteria names with True/False indicating if met.
         """
         return {
-            "Length >= 8": len(self.password) >= 8,
-            "Length >= 12": len(self.password) >= 12,
+            "Length >= 8": bool(len(self.password) >= 8),
+            "Length >= 12": bool(len(self.password) >= 12),
             "Uppercase letter": bool(re.search(r"[A-Z]", self.password)),
             "Lowercase letter": bool(re.search(r"[a-z]", self.password)),
             "Digit": bool(re.search(r"[0-9]", self.password)),
